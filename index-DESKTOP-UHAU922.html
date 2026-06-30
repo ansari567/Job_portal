@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Startup Discovery Portal - Find Innovation in Your Area</title>
+    <meta name="description" content="Discover groundbreaking startups in your city. Explore innovative companies, emerging technologies, and career opportunities in your local startup ecosystem.">
+    <meta name="author" content="Local Startup Discovery Portal">
+    
+    <meta property="og:title" content="Local Startup Discovery Portal - Find Innovation in Your Area">
+    <meta property="og:description" content="Discover groundbreaking startups in your city. Explore innovative companies, emerging technologies, and career opportunities in your local startup ecosystem.">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    
+    <nav class="main-nav">
+    <div class="container nav-content">
+        <a href="index.html" class="nav-logo">Startup<span class="gradient-text">Hub</span></a>
+        <div class="nav-links">
+            <a href="index.html#category-section">Categories</a>
+            <a href="index.html#startups-section">Companies</a>
+            <a href="about.html">About</a>
+            <a href="db_connect.php">Contact Us</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </div>
+    </div>
+</nav>
+
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+                    </svg>
+                    Discover the Next Big Thing
+                </div>
+                
+                <h1 class="hero-title">
+                    Local Startup
+                    <span class="gradient-text">Discovery Portal</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Connect with innovative startups in your area. Discover groundbreaking companies, 
+                    explore emerging technologies, and find your next career opportunity.
+                </p>
+                
+                <div class="search-container">
+                    <div class="search-bar">
+                        <div class="search-input-group">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            <input type="text" id="searchInput" placeholder="Search startups, technologies, or ideas..." class="search-input">
+                        </div>
+                        <div class="search-input-group">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <input type="text" id="locationInput" placeholder="Location (e.g. San Francisco, CA)" class="search-input">
+                        </div>
+                        <button id="searchButton" class="search-button">Discover</button>
+                    </div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11H5a2 2 0 0 0-2 2v3c0 1.1.9 2 2 2h4m6-6h4a2 2 0 0 1 2 2v3c0 1.1-.9 2-2 2h-4m-6-6V9a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m-6 0h6"></path>
+                        </svg>
+                        <span id="stat-count">200+ Startups</span>
+                    </div>
+                    <div class="stat-item">
+                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>10+ Cities</span>
+                    </div>
+                    <div class="stat-item">
+                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+                        </svg>
+                        <span>Growing Daily</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="category-section" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="category-filter" id="categoryFilter">
+                <div class="category-badge active" data-category="All">All <span class="count">(0)</span></div>
+                <div class="category-badge" data-category="FinTech">FinTech <span class="count">(0)</span></div>
+                <div class="category-badge" data-category="HealthTech">HealthTech <span class="count">(0)</span></div>
+                <div class="category-badge" data-category="EdTech">EdTech <span class="count">(0)</span></div>
+                <div class="category-badge" data-category="E-commerce">E-commerce <span class="count">(0)</span></div>
+                <div class="category-badge" data-category="AI/ML">AI/ML <span class="count">(0)</span></div>
+                <div class="category-badge" data-category="SaaS">SaaS <span class="count">(0)</span></div>
+                <div class="category-badge" data-category="CleanTech">CleanTech <span class="count">(0)</span></div>
+                <div class="category-badge" data-category="FoodTech">FoodTech <span class="count">(0)</span></div>
+            </div>
+            
+            <div style="display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">
+                <label for="sortOrder" style="color: #94a3b8; font-size: 0.9rem;">Sort by:</label>
+                <select id="sortOrder" style="padding: 0.5rem; border-radius: 0.5rem; background-color: #1e1e28; color: #f8fafc; border: 1px solid rgba(148, 163, 184, 0.3);">
+                    <option value="name">Name (A-Z)</option>
+                    <option value="employees">Employees (Low-High)</option>
+                    <option value="year">Founded Year (Newest)</option>
+                    <option value="funding">Funding (High-Low)</option>
+                </select>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="startups-section" class="startups-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="results-title" class="section-title">Startups Found (0)</h2>
+                <p id="results-description" class="section-description">
+                    Displaying results based on your search and filter criteria.
+                </p>
+                <p id="no-results-message" class="section-description" style="color: #f87171; display: none;">
+                    No startups match your current filters. Try a different category or keyword.
+                </p>
+            </div>
+            
+            <div id="startups-grid" class="startups-grid">
+                </div>
+            
+            <div class="section-cta">
+                <button id="load-more-button" class="btn-primary-large" style="display: none;">Load More Startups</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="startupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-header">
+                <div id="modalLogo" class="modal-logo"></div> 
+                <div class="modal-details">
+                    <h2 id="modalName">Company Name</h2>
+                    <p id="modalCategory">Category</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription">Detailed description goes here.</p>
+                <div id="modalMetaGrid" class="modal-meta-grid">
+                    </div>
+            </div>
+            <div class="card-actions" style="justify-content: flex-start;">
+                <a id="modalWebsiteLink" href="#" target="_blank" class="btn-link">
+                    <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15,3 21,3 21,9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    Visit Official Site
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="index.html" class="footer-logo">Startup<span class="gradient-text">Hub</span></a>
+                    <p class="footer-description">
+                        Connecting innovators with opportunity. Your portal to the local startup ecosystem.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2 1.7-1.4 3-3.7 3.2-5.7.4-.1.8-.2 1.1-.3 2.1-1.3 3.4-3.5 3.5-5.9.1-2.4-.7-4.8-2.5-6.6-1.8-1.8-4.2-2.6-6.6-2.5z"></path></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#category-section">Discover Sectors</a></li>
+                        <li><a href="contact.html">Partner with Us</a></li>
+                        <li><a href="#">Careers at Startups</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="javascript:void(0);" onclick="window.filterAndScroll('SaaS')">SaaS & Software</a></li>
+                        <li><a href="javascript:void(0);" onclick="window.filterAndScroll('FinTech')">Finance Technology</a></li>
+                        <li><a href="javascript:void(0);" onclick="window.filterAndScroll('HealthTech')">Healthcare & Wellness</a></li>
+                        <li><a href="javascript:void(0);" onclick="window.filterAndScroll('AI/ML')">AI & Machine Learning</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">General Enquiries</a></li>
+                        <li><a href="contact.html">Submit Your Startup</a></li>
+                        <li><a href="mailto:support@startuphub.com">support@startuphub.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; <span id="currentYear"></span> StartupHub. All rights reserved. | <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- DATA GENERATION (ADVANCED FEATURE: 200 SIMULATED COMPANIES) ---
+        const startupNames = [
+            'Flow', 'Grid', 'Predict', 'Spark', 'Quantum', 'Harvest', 'Pulse', 'Logic', 
+            'Connect', 'Solar', 'Learn', 'Track', 'Trade', 'Vision', 'Eats', 'Sense', 
+            'Innovate', 'Swift', 'Tech', 'Aero', 'Data', 'Web', 'Link', 'Zen'
+        ];
+        const startupSuffixes = [
+            'Automation', 'Solutions', 'AI', 'Academy', 'Finance', 'Local', 'Pro', 'Logic', 
+            'Connect', 'Tech', 'VR', 'Health', 'Exchange', 'Systems', 'Delivery', 'Labs', 
+            'Platform', 'Global', 'Hub', 'Nexus', 'Stream', 'Core', 'Dynamics', 'Works'
+        ];
+        const categories = ['SaaS', 'CleanTech', 'HealthTech', 'EdTech', 'FinTech', 'FoodTech', 'E-commerce', 'AI/ML'];
+        const locations = [
+            'San Francisco, CA', 'Austin, TX', 'Boston, MA', 'Seattle, WA', 'New York, NY', 
+            'Portland, OR', 'Miami, FL', 'Denver, CO', 'San Diego, CA', 'Chicago, IL'
+        ];
+        const fundingRanges = [
+            { amount: 500000, str: '$500K Angel', id: 'Angel' },
+            { amount: 1000000, str: '$1M Pre-Seed', id: 'Pre-Seed' },
+            { amount: 5000000, str: '$5M Seed', id: 'Seed' },
+            { amount: 15000000, str: '$15M Series A', id: 'Series A' },
+            { amount: 30000000, str: '$30M Series B', id: 'Series B' },
+            { amount: 75000000, str: '$75M Series C', id: 'Series C' },
+            { amount: 150000000, str: '$150M Series D', id: 'Series D' }
+        ];
+        const employeeRanges = ['5-15', '16-25', '26-50', '51-100', '101-250', '251-500', '500+'];
+        const baseDescriptions = [
+            'Revolutionary platform that helps businesses streamline their operations using proprietary machine learning models.',
+            'Sustainable solutions for smart systems, making technology accessible and affordable for everyone through decentralized networks.',
+            'AI-powered analytics platform that helps professionals make better decisions and improve outcomes by reducing diagnostic time by 50%.',
+            'Personalized learning tool that adapts to each user\'s style and pace for maximum educational impact in K-12 STEM subjects.',
+            'Next-generation financial management tools leveraging blockchain for transparent and secure small business lending.',
+            'A platform connecting local producers with consumers, supporting local ecosystems and sustainability with a direct-to-consumer model.',
+            'A predictive analytics tool for online stores to forecast inventory and optimize pricing strategies, increasing conversion rates.',
+            'Specialized in developing deep learning algorithms for complex problem-solving, particularly in logistics optimization and autonomous vehicle path planning.'
+        ];
+
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function generateStartup(id) {
+            const category = getRandomElement(categories);
+            const name = getRandomElement(startupNames) + ' ' + getRandomElement(startupSuffixes);
+            const location = getRandomElement(locations);
+            const funding = getRandomElement(fundingRanges);
+            const employees = getRandomElement(employeeRanges);
+            const year = 2015 + Math.floor(Math.random() * 10);
+            const logo = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+
+            let description = getRandomElement(baseDescriptions);
+            description = description.replace('platform', category + ' platform').replace('systems', category + ' systems');
+
+            return {
+                id: id,
+                name: name,
+                logo: logo,
+                category: category,
+                location: location,
+                employees: employees,
+                funding: funding.amount,
+                fundingStr: funding.str,
+                year: year,
+                url: `https://${name.toLowerCase().replace(/[^a-z0-9]/g, '')}.com`,
+                description: description
+            };
+        }
+
+        // Generate 200 unique startups
+        const allStartups = Array.from({ length: 200 }, (_, i) => generateStartup(i + 1));
+        
+        // --- STATE MANAGEMENT ---
+        let currentFilterCategory = 'All';
+        let currentSortOrder = 'name';
+        let currentStartupKeyword = '';
+        let currentLocationKeyword = '';
+        let displayedCardCount = 12; // Initial load set slightly higher for a full screen grid
+        const CARDS_PER_LOAD = 12;
+        
+        // --- DOM ELEMENTS ---
+        const startupsGrid = document.getElementById('startups-grid');
+        const loadMoreButton = document.getElementById('load-more-button');
+        const searchInput = document.getElementById('searchInput');
+        const locationInput = document.getElementById('locationInput');
+        const searchButton = document.getElementById('searchButton');
+        const sortSelect = document.getElementById('sortOrder');
+        const resultsTitle = document.getElementById('results-title');
+        const noResultsMessage = document.getElementById('no-results-message');
+        const statCountElement = document.getElementById('stat-count');
+
+        // --- UTILITY FUNCTIONS ---
+        
+        function getLogoStyle(logo) {
+            let hash = 0;
+            for (let i = 0; i < logo.length; i++) {
+                hash = logo.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            const colorSeed = hash % 360;
+            return `background: linear-gradient(135deg, hsl(${colorSeed}, 50%, 40%) 0%, hsl(${colorSeed + 30}, 50%, 20%) 100%); color: white;`;
+        }
+        
+        function createStartupCardHTML(startup) {
+            const logoStyle = getLogoStyle(startup.logo);
+            
+            return `
+                <div class="startup-card" data-id="${startup.id}">
+                    <div class="card-header">
+                        <div class="startup-logo" style="${logoStyle}">${startup.logo}</div>
+                        <div class="startup-info">
+                            <h3 class="startup-name">${startup.name}</h3>
+                            <div class="startup-category">${startup.category}</div>
+                        </div>
+                    </div>
+                    <p class="startup-description">${startup.description}</p>
+                    <div class="startup-meta">
+                        <div class="meta-item">
+                            <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            ${startup.location}
+                        </div>
+                        <div class="meta-item">
+                            <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            ${startup.employees}
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-outline" data-id="${startup.id}">Learn More</button> 
+                        <a href="${startup.url}" target="_blank" class="btn-link">
+                            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15,3 21,3 21,9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            Visit
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- CORE FILTERING AND SORTING LOGIC ---
+        function getFilteredAndSortedList() {
+            let list = allStartups;
+
+            // 1. Filter by Category
+            if (currentFilterCategory !== 'All') {
+                list = list.filter(s => s.category === currentFilterCategory);
+            }
+
+            // 2. Filter by Keyword (Name/Description)
+            const keyword = currentStartupKeyword.toLowerCase();
+            if (keyword) {
+                list = list.filter(s => 
+                    s.name.toLowerCase().includes(keyword) || 
+                    s.description.toLowerCase().includes(keyword)
+                );
+            }
+
+            // 3. Filter by Location
+            const locationKeyword = currentLocationKeyword.toLowerCase();
+            if (locationKeyword) {
+                list = list.filter(s => s.location.toLowerCase().includes(locationKeyword));
+            }
+
+            // 4. Sort
+            list.sort((a, b) => {
+                if (currentSortOrder === 'name') {
+                    return a.name.localeCompare(b.name);
+                } else if (currentSortOrder === 'employees') {
+                    const employeesA = parseInt(a.employees.split('-')[0].replace('+', ''));
+                    const employeesB = parseInt(b.employees.split('-')[0].replace('+', ''));
+                    return employeesA - employeesB;
+                } else if (currentSortOrder === 'year') {
+                    return b.year - a.year;
+                } else if (currentSortOrder === 'funding') {
+                    return b.funding - a.funding;
+                }
+                return 0;
+            });
+
+            return list;
+        }
+
+        // --- UPDATING DISPLAY FUNCTIONS ---
+        
+        function updateCategoryCounts() {
+            const counts = allStartups.reduce((acc, startup) => {
+                acc[startup.category] = (acc[startup.category] || 0) + 1;
+                return acc;
+            }, {});
+            
+            document.querySelectorAll('.category-badge').forEach(badge => {
+                const category = badge.getAttribute('data-category');
+                const count = category === 'All' ? allStartups.length : (counts[category] || 0);
+                badge.querySelector('.count').textContent = `(${count})`;
+            });
+            statCountElement.textContent = `${allStartups.length}+ Startups`;
+        }
+
+        function updateCountsAndLoadButton(totalCount, displayed) {
+            resultsTitle.textContent = `Startups Found (${totalCount})`;
+            
+            if (totalCount > 0) {
+                resultsTitle.style.display = 'block';
+                noResultsMessage.style.display = 'none';
+            } else {
+                resultsTitle.style.display = 'none';
+                noResultsMessage.style.display = 'block';
+            }
+
+            if (displayed < totalCount) {
+                loadMoreButton.style.display = 'block';
+            } else {
+                loadMoreButton.style.display = 'none';
+            }
+        }
+        
+        // --- MAIN RENDER FUNCTION ---
+        function renderStartups(resetCount = false) {
+            if (resetCount) {
+                displayedCardCount = CARDS_PER_LOAD;
+            }
+
+            const sortedList = getFilteredAndSortedList();
+            const totalCount = sortedList.length;
+
+            const listToDisplay = sortedList.slice(0, displayedCardCount);
+            
+            if (totalCount === 0) {
+                startupsGrid.innerHTML = '';
+            } else {
+                startupsGrid.innerHTML = listToDisplay.map(createStartupCardHTML).join('');
+            }
+            
+            // Re-attach Modal listener
+            document.querySelectorAll('.startup-card .btn-outline').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    const startupId = parseInt(e.target.getAttribute('data-id'));
+                    openModal(startupId);
+                });
+            });
+
+            updateCountsAndLoadButton(totalCount, listToDisplay.length);
+        }
+        
+        // --- EVENT HANDLERS ---
+        
+        function handleSearchAndFilter() {
+            currentStartupKeyword = searchInput.value.trim();
+            currentLocationKeyword = locationInput.value.trim();
+            
+            // Set filter category back to 'All' when search is performed
+            currentFilterCategory = 'All';
+            document.querySelectorAll('.category-badge').forEach(b => b.classList.remove('active'));
+            document.querySelector('.category-badge[data-category="All"]').classList.add('active');
+
+            renderStartups(true); 
+            document.getElementById('startups-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        searchButton.addEventListener('click', handleSearchAndFilter);
+        searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSearchAndFilter(); });
+        locationInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSearchAndFilter(); });
+
+        document.querySelectorAll('#categoryFilter .category-badge').forEach(badge => {
+            badge.addEventListener('click', function() {
+                // Clear search and location text when category is clicked
+                searchInput.value = '';
+                locationInput.value = '';
+                currentStartupKeyword = '';
+                currentLocationKeyword = '';
+                
+                document.querySelectorAll('.category-badge').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilterCategory = this.getAttribute('data-category');
+                renderStartups(true);
+            });
+        });
+
+        sortSelect.addEventListener('change', function() {
+            currentSortOrder = this.value;
+            renderStartups(false); 
+        });
+
+        loadMoreButton.addEventListener('click', () => {
+            displayedCardCount += CARDS_PER_LOAD;
+            renderStartups(false);
+        });
+
+        // Function for footer links to filter and scroll
+        window.filterAndScroll = function(category) {
+            // Clear search/location
+            searchInput.value = '';
+            locationInput.value = '';
+            currentStartupKeyword = '';
+            currentLocationKeyword = '';
+
+            currentFilterCategory = category;
+            
+            // Update active badge in the category filter section
+            document.querySelectorAll('.category-badge').forEach(b => {
+                b.classList.remove('active');
+                if (b.getAttribute('data-category') === category) {
+                    b.classList.add('active');
+                }
+            });
+            
+            renderStartups(true);
+            document.getElementById('startups-section').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // --- MODAL LOGIC (INTERACTIVE POP-UP) ---
+        const modal = document.getElementById('startupModal');
+        const closeModal = document.querySelector('.close-button');
+        const modalLogo = document.getElementById('modalLogo');
+        const modalName = document.getElementById('modalName');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalMetaGrid = document.getElementById('modalMetaGrid');
+        const modalWebsiteLink = document.getElementById('modalWebsiteLink');
+
+        function openModal(startupId) {
+            const startup = allStartups.find(s => s.id === startupId);
+            if (!startup) return;
+
+            // 1. Set Logo Style
+            modalLogo.style = getLogoStyle(startup.logo);
+            modalLogo.textContent = startup.logo;
+
+            // 2. Set Text Content (Full Data)
+            modalName.textContent = startup.name;
+            modalCategory.textContent = startup.category;
+            modalDescription.textContent = startup.description;
+            modalWebsiteLink.href = startup.url;
+
+            // 3. Populate Meta Grid (More Details)
+            modalMetaGrid.innerHTML = `
+                <div class="modal-meta-item"><strong>Location:</strong> ${startup.location}</div>
+                <div class="modal-meta-item"><strong>Employees:</strong> ${startup.employees}</div>
+                <div class="modal-meta-item"><strong>Funding:</strong> ${startup.fundingStr}</div>
+                <div class="modal-meta-item"><strong>Founded Year:</strong> ${startup.year}</div>
+            `;
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        // Close modal listeners
+        closeModal.onclick = () => { modal.style.display = 'none'; document.body.style.overflow = 'auto'; };
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCategoryCounts(); // Calculate counts for badges
+            renderStartups(true); // Initial render with all companies
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

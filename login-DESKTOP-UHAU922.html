@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - StartupHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="main-nav">
+        </nav>
+    
+    <section class="startups-section">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 2rem; text-align: center;">Log In to Your Account</h2>
+            
+            <div class="form-container">
+                <form id="loginForm" action="login_process.php" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary-large" style="width: 100%;">Log In</button>
+                    
+                    <?php
+                        if (isset($_GET['error']) && $_GET['error'] == 'invalidcredentials') {
+                            echo '<p style="color: #f87171; text-align: center; margin-top: 1rem;">
+                                    Invalid email or password. Please try again.
+                                  </p>';
+                        }
+                    ?>
+                    
+                    <p style="text-align: center; margin-top: 1rem; color: #94a3b8;">
+                        Don't have an account? <a href="register.html" style="color: #a78bfa; text-decoration: none;">Register here</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        </footer>
+    
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        // The demo submit listener has been removed.
+        // The form will now submit to login_process.php
+    </script>
+</body>
+</html>
